@@ -1,0 +1,6 @@
+@TakeHomeAssignmentAPI_HostAddress = http://localhost:5202
+
+GET {{TakeHomeAssignmentAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
