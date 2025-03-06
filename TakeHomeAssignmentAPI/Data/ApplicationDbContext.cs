@@ -17,24 +17,24 @@ namespace TakeHomeAssignmentAPI.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // ✅ Define Composite Primary Key
+            
             modelBuilder.Entity<Packaging_Hierarchy>()
                 .HasKey(ph => new { ph.ParentPackagingId, ph.ChildPackagingId });
 
-            // ✅ Define relationships
+           
             modelBuilder.Entity<Packaging_Hierarchy>()
                 .HasOne(ph => ph.ParentPackaging)
                 .WithMany()
                 .HasForeignKey(ph => ph.ParentPackagingId)
-                .OnDelete(DeleteBehavior.Restrict); // Prevent cascade delete
+                .OnDelete(DeleteBehavior.Restrict);
 
             modelBuilder.Entity<Packaging_Hierarchy>()
                 .HasOne(ph => ph.ChildPackaging)
                 .WithMany()
                 .HasForeignKey(ph => ph.ChildPackagingId)
-                .OnDelete(DeleteBehavior.Restrict); // Prevent cascade delete
+                .OnDelete(DeleteBehavior.Restrict);
 
-            // ✅ Call Seed Data
+           
             SeedData.Seed(modelBuilder);
         }
     }

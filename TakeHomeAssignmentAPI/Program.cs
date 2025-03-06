@@ -16,7 +16,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // ✅ Configure Serilog to log to a database
 Log.Logger = new LoggerConfiguration()
-    .ReadFrom.Configuration(builder.Configuration) // Read settings from appsettings.json
+    .ReadFrom.Configuration(builder.Configuration) 
     .Enrich.FromLogContext()
     .WriteTo.Console()
     .WriteTo.File("Logs/log-.txt", rollingInterval: RollingInterval.Day)
@@ -67,9 +67,9 @@ builder.Services.AddApiVersioning(options =>
 {
     options.ReportApiVersions = true;
     options.AssumeDefaultVersionWhenUnspecified = true;
-    options.DefaultApiVersion = new ApiVersion(1, 0); // Default to v1 if not specified
-    options.ApiVersionReader = new UrlSegmentApiVersionReader(); // Read version from URL segment
-    options.UseApiBehavior = false; // Prevents automatic versioning errors
+    options.DefaultApiVersion = new ApiVersion(1, 0); 
+    options.ApiVersionReader = new UrlSegmentApiVersionReader(); 
+    options.UseApiBehavior = false; 
 });
 
 
@@ -83,7 +83,7 @@ builder.Services.AddSwaggerGen(options =>
     options.SwaggerDoc("v1", new OpenApiInfo { Title = "TakeHomeAssignmentAPI", Version = "v1" });
     options.SwaggerDoc("v2", new OpenApiInfo { Title = "TakeHomeAssignmentAPI", Version = "v2" });
 
-    options.OperationFilter<SwaggerDefaultValues>(); // Add this to support multiple versions
+    options.OperationFilter<SwaggerDefaultValues>(); 
 
     options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {

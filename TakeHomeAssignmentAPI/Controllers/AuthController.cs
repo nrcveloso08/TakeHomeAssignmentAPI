@@ -51,12 +51,12 @@ namespace TakeHomeAssignmentAPI.Controllers
         // Helper methods for 2FA
         private string GenerateTwoFactorCode()
         {
-            return new Random().Next(100000, 999999).ToString(); // 6-digit code
+            return new Random().Next(100000, 999999).ToString(); 
         }
 
         private string GenerateRecoveryCode()
         {
-            return Guid.NewGuid().ToString(); // Unique recovery code
+            return Guid.NewGuid().ToString(); 
         }
 
 
@@ -85,7 +85,7 @@ namespace TakeHomeAssignmentAPI.Controllers
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Username), // Ensure 'Username' is correct
+                new Claim(JwtRegisteredClaimNames.Sub, user.Username),
                 new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
             };
 

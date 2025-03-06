@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Data;
-using TakeHomeAssignmentAPI.Data; // Ensure you import the correct namespace
+using TakeHomeAssignmentAPI.Data; 
 using TakeHomeAssignmentAPI.DTO;
 using TakeHomeAssignmentAPI.Models;
 
@@ -15,7 +15,7 @@ namespace TakeHomeAssignmentAPI.Repositories
 
     public class ProductRepository : IProductRepository
     {
-        private readonly ApplicationDbContext _context; // Use ApplicationDbContext
+        private readonly ApplicationDbContext _context;
 
         public ProductRepository(ApplicationDbContext context)
         {
